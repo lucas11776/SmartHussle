@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller {
 
 	/**
-	 * Home Controller Route
+	 * Home Controller
 	 * 
 	 * @map - http://website/
 	 */

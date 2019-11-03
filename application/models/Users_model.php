@@ -12,6 +12,30 @@ class Users_model extends CI_Model
     public const TABLE = 'users';
 
     /**
+     * Get user by username or email
+     * 
+     * @param   string
+     * @param   array
+     */
+    public function user (string $user)
+    {
+        return $this->db->where('username', $user)
+                        ->or_where('email', $user)
+                        ->get(self::TABLE)
+                        ->result_array()[0] ?? 0;
+    }
+
+    /**
+     * Insert user record in table
+     * 
+     * @param   array
+     */
+    public function insert (array $data)
+    {
+        return $this->crud->table(self::TABLE)->insert($data);
+    }
+
+    /**
      * Get users records
      * 
      * @param   array
