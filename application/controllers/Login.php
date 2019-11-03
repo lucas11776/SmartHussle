@@ -7,7 +7,7 @@ class Login extends CI_Controller
     /**
      * Login Controller
      * 
-     * @maps http://website/login
+     * @Maps http://website/login
      */
     public function index ()
     {

@@ -43,7 +43,7 @@ class Categories_model extends CI_Model
      */
     public function category_exist (string $category)
     {
-        return $this->crud->table(self::TABLE)->exist(['slug' => $category, 'category' => $category]);
+        return $this->crud->table(self::TABLE)->exist(['slug' => $category, 'name' => $category]);
     }
 
     /**

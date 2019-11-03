@@ -7,7 +7,7 @@ class Register extends CI_Controller
     /**
      * Register Controller
      * 
-     * @map http://website/register
+     * @Maps http://website/register
      */
     public function index ()
     {
