@@ -66,8 +66,11 @@ class DB_Crud
      */
     public function get (array $where = null, int $limit = null, int $offset = null)
     {
-        return $this->db->where($where === null ? [] : $where)
-                        ->order_by('created', 'DESC')
+        for ($i = 0; $i < count($where ?? []); $i++) {
+            if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
+            else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
+        }
+        return $this->db->order_by('created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
                         ->result_array();
     }
@@ -100,6 +103,22 @@ class DB_Crud
         if ($search) $this->like($data);
         else $this->db->where($data);
         return $this->db->count_all_results($this->db_table, $data);
+    }
+
+    /**
+     * Check if record exist in database
+     * 
+     * @param   array
+     * @return  boolean
+     */
+    public function exist (array $where)
+    {
+        for ($i = 0; $i < count($where); $i++) {
+            if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
+            else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
+        }
+        $record = $this->db->get($this->db_table)->result_array();
+        return count($record) > 0 ? true : false;
     }
 
     /**

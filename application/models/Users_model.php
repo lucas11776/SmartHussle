@@ -19,10 +19,7 @@ class Users_model extends CI_Model
      */
     public function user (string $user)
     {
-        return $this->db->where('username', $user)
-                        ->or_where('email', $user)
-                        ->get(self::TABLE)
-                        ->result_array()[0] ?? 0;
+        return $this->crud->table(self::TABLE)->get(['username' => $user, 'email' => $user])[0] ?? [];
     }
 
     /**
@@ -56,7 +53,7 @@ class Users_model extends CI_Model
      */
     public function email_exist (string $email)
     {
-        return count($this->get(['email' => $email])) > 0 ? true : false;
+        return $this->crud->table(self::TABLE)->exist(['email' => $email]);
     }
 
     /**
@@ -67,7 +64,7 @@ class Users_model extends CI_Model
      */
     public function username_exist (string $username)
     {
-        return count($this->get(['username' => $username])) > 0 ? true : false;
+        return $this->crud->table(self::TABLE)->exist(['username' => $username]);
     }
 
     /**
