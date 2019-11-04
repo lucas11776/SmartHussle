@@ -32,7 +32,7 @@ class Register extends CI_Controller
 
         // insert user data in users table
         if ($this->users->insert($user_data) === false) {
-            $this->session->set_flashdata('form-error', 'Something went wrong when tring to connect to database');
+            $this->session->set_flashdata('form_error', 'Something went wrong when tring to connect to database');
             return $this->load->view('register');
         }
 

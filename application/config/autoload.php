@@ -63,7 +63,8 @@ $autoload['libraries'] = array(
     'db_crud' => 'crud',
     'form_validation',
     'encryption',
-    'session'
+    'session',
+    'upload'
 );
 
 /*
@@ -142,5 +143,6 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
     'users_model' => 'users',
-    'categories_model' => 'categories'
+    'categories_model' => 'categories',
+    'products_model' => 'products'
 );

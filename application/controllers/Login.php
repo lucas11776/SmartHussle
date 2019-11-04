@@ -30,7 +30,7 @@ class Login extends CI_Controller
         $password = $this->encryption->decrypt($account['password']);
 
         if ($this->input->post('password') != $password) {
-            $this->session->set_flashdata('form-error', 'Invalid username or password please enter correct one.');
+            $this->session->set_flashdata('form_error', 'Invalid username or password please enter correct one.');
             return $this->load->view('login');
         }
 

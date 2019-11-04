@@ -116,9 +116,8 @@ class DB_Crud
         for ($i = 0; $i < count($where); $i++) {
             if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
             else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
-        }
-        $record = $this->db->get($this->db_table)->result_array();
-        return count($record) > 0 ? true : false;
+        };
+        return count($this->db->get($this->db_table)->result_array()) > 0 ? true : false;
     }
 
     /**
@@ -144,6 +143,6 @@ class DB_Crud
             if ($i === 0) $this->db->like(array_keys($like)[$i], array_values($like)[$i]);
             else $this->db->or_like(array_keys($like)[$i], array_values($like)[$i]);
         }
-        return $this;
+        return $this->db->get($this->db_table)->results_array();
     }
 }

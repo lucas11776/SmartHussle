@@ -55,5 +55,6 @@ $route['login'] = 'login/index';
 $route['dashboard/categories'] = 'categories/index';
 $route['dashboard/categories/add'] = 'categories/add';
 $route['dashboard/categories/delete'] = 'categories/delete';
+$route['dashboard/upload/product'] = 'upload_product/index';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
