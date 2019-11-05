@@ -65,7 +65,7 @@ class Products_model extends CI_Model
      * @param   integer
      * @return  boolean
      */
-    public function get (array $where = null, int $limit = null, int $offset)
+    public function get (array $where = null, int $limit = null, int $offset = null)
     {
         return $this->crud->table(self::TABLE)->get($where, $limit, $offset);
     }

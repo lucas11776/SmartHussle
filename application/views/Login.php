@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <base href="<?= base_url() ?>">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
 
@@ -26,7 +28,7 @@
                     <a class="nav-link" href="<?= base_url('') ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('shop') ?>">Shop</a>
+                    <a class="nav-link" href="<?= base_url('store') ?>">Store</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>

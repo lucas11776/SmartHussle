@@ -24,10 +24,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('') ?>">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="<?= base_url('store') ?>">Store</a>
                 </li>
                 <li class="nav-item">
@@ -42,6 +42,32 @@
             </ul>
         </div>
     </nav>
+
+    <div class="container pt-5">
+        <div class="row">
+            <?php for ($i = 0; $i < count($products); $i++): ?>
+                <div class="col-sm-4 col-md-3">
+                    <div class="card">
+                        <img src="<?= $products[$i]['picture'] ?>" 
+                             class="card-img-top" 
+                             alt="<?= $products[$i]['name'] ?>">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $products[$i]['name'] ?></h5>
+                            <p class="card-text"><?= $products[$i]['description'] ?></p>
+                            <div class="btn-group text-center" role="group" aria-label="Basic example">
+                                <?= form_open('dashboard/products/delete') ?>
+                                    <input type="hidden" name="id" value="<?= $products[$i]['pid'] ?>"/>
+                                    <input type="hidden" name="redirect" value="<?= uri_string() ?>"/>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                <?= form_close() ?>
+                                <a type="button" class="btn btn-primary">Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endfor; ?>
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
