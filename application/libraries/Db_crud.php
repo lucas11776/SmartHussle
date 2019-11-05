@@ -46,6 +46,19 @@ class DB_Crud
     }
 
     /**
+     * Join to tables
+     * 
+     * @param   string
+     * @param   string
+     * @return  object
+     */
+    public function join (string $table, string $join, string $type = 'LEFT')
+    {
+        $this->db->join($table, $join, $type);
+        return $this;
+    }
+
+    /**
      * Insert data in table
      * 
      * @param   array
@@ -98,10 +111,10 @@ class DB_Crud
      * @param   boolean
      * @return  integer
      */
-    public function count (array $data, bool $search = false)
+    public function count (array $data = null, bool $search = false)
     {
-        if ($search) $this->like($data);
-        else $this->db->where($data);
+        if ($search) $this->like($data ?? []);
+        else $this->db->where($data ?? []);
         return $this->db->count_all_results($this->db_table, $data);
     }
 

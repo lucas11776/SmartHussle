@@ -60,7 +60,8 @@
                                     <input type="hidden" name="redirect" value="<?= uri_string() ?>"/>
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 <?= form_close() ?>
-                                <a type="button" class="btn btn-primary">Edit</a>
+                                <a class="btn btn-primary">Edit</a>
+                                <a href="<?= base_url('order/product/' . $products[$i]['pid']) ?>" class="btn btn-info">Order</a>
                             </div>
                         </div>
                     </div>
