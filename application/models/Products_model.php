@@ -78,7 +78,7 @@ class Products_model extends CI_Model
      */
     public function product_exist (string $product)
     {
-        return $this->crud->table(self::TABLE)->exist(['name' => $product]);
+        return $this->crud->table(self::TABLE)->exist(['name' => $product, 'pid' => $product, 'slug' => $product]);
     }
 
     /**
