@@ -145,5 +145,6 @@ $autoload['model'] = array(
     'users_model' => 'users',
     'categories_model' => 'categories',
     'products_model' => 'products',
-    'orders_model' => 'orders'
+    'orders_model' => 'orders',
+    'messages_model' => 'messages'
 );
