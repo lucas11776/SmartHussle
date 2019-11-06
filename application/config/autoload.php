@@ -64,7 +64,8 @@ $autoload['libraries'] = array(
     'form_validation',
     'encryption',
     'session',
-    'upload'
+    'upload',
+    'authorization' => 'auth'
 );
 
 /*
