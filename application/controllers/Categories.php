@@ -11,6 +11,9 @@ class Categories extends CI_Controller
      */
     public function index ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+
         $page = [
             'categories' => $this->categories->get()
         ];
@@ -24,6 +27,9 @@ class Categories extends CI_Controller
      */
     public function add ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+
         $this->form_validation->set_rules('name', 'category', 'required|callback_product_exist');
 
         if ($this->form_validation->run() === false) {
@@ -60,6 +66,9 @@ class Categories extends CI_Controller
      */
     public function delete ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+        
         $this->form_validation->set_rules('id', 'category id', 'required|integer');
 
         if ($this->form_validation->run() === false) {

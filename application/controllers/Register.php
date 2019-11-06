@@ -11,6 +11,9 @@ class Register extends CI_Controller
      */
     public function index ()
     {
+        // authorization guest
+        $this->auth->guest();
+
         $this->form_validation->set_rules('username', 'username', 'required|min_length[3]|max_length[30]|callback_username_exist');
         $this->form_validation->set_rules('email', 'email address', 'required|valid_email|callback_email_exist');
         $this->form_validation->set_rules('password', 'password', 'required');

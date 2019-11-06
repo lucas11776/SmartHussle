@@ -11,6 +11,9 @@ class Upload_product extends CI_Controller
      */
     public function index ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+        
         $this->form_validation->set_rules('picture', 'picture', 'callback_picture_upload');
         $this->form_validation->set_rules('category', 'category', 'required|callback_category_exist');
         $this->form_validation->set_rules('name', 'product', 'required|callback_product_exist');

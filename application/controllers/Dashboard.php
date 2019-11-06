@@ -11,6 +11,9 @@ class Dashboard extends CI_Controller
      */
     public function index ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+
         $page = [
             'number_products' => $this->products->count(),
             'number_messages' => $this->messages->count(),
@@ -27,6 +30,9 @@ class Dashboard extends CI_Controller
      */
     public function products ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+
         $page = ['products' => $this->products->get()];
         $this->load->view('dashboard/products', $page);
     }
@@ -49,6 +55,9 @@ class Dashboard extends CI_Controller
      */
     public function messages ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+
         $page = ['messages' => $this->messages->get()];
         $this->load->view('dashboard/messages', $page);
     }
@@ -60,6 +69,9 @@ class Dashboard extends CI_Controller
      */
     public function users ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+        
         $page = ['users' => $this->users->get()];
         $this->load->view('dashboard/users', $page);
     }

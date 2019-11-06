@@ -42,6 +42,9 @@ class Products extends CI_Controller
      */
     public function delete ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+        
         $this->form_validation->set_rules('id', 'product id', 'required|integer');
 
         if ($this->form_validation->run() === false) {

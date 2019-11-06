@@ -61,6 +61,9 @@ class Orders extends CI_Controller
      */
     public function delete ()
     {
+        // authorization administrator
+        $this->auth->administrator();
+        
         $this->form_validation->set_rules('id', 'order id', 'required|integer');
 
         if ($this->form_validation->run() === false) {
