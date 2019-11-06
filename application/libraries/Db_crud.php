@@ -2,20 +2,21 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DB_Crud
-{
+{   
+    
+    /**
+     * CodeIgniter database object
+     * 
+     * @var object
+     */
+    public $db;
+
     /**
      * CodeIgniter super global
      * 
      * @var object
      */
     protected $CI;
-
-    /**
-     * CodeIgniter database object
-     * 
-     * @var object
-     */
-    protected $db;
 
     /**
      * Database table
@@ -42,6 +43,18 @@ class DB_Crud
     public function table (string $table)
     {
         $this->db_table = $table;
+        return $this;
+    }
+
+    /**
+     * Select table cols
+     * 
+     * @param   string
+     * @return  object
+     */
+    public function select (string $select)
+    {
+        $this->db->select($select);
         return $this;
     }
 
@@ -83,7 +96,7 @@ class DB_Crud
             if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
             else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
         }
-        return $this->db->order_by('created', 'DESC')
+        return $this->db->order_by($this->db_table . '.created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
                         ->result_array();
     }
@@ -99,7 +112,7 @@ class DB_Crud
     public function search (array $like = [], int $limit = null, int $offset = null)
     {
         $this->like($data);
-        return $this->db->order_by('created', 'DESC')
+        return $this->db->order_by($this->db_table . '.created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
                         ->result_array();
     }
@@ -113,6 +126,7 @@ class DB_Crud
      */
     public function count (array $data = null, bool $search = false)
     {
+        $this->db->reset_query();
         if ($search) $this->like($data ?? []);
         else $this->db->where($data ?? []);
         return $this->db->count_all_results($this->db_table, $data);

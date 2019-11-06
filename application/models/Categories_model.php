@@ -47,6 +47,16 @@ class Categories_model extends CI_Model
     }
 
     /**
+     * Count number of category in table
+     * 
+     * @return  integer
+     */
+    public function count ()
+    {
+        return $this->crud->table(self::TABLE)->count();
+    }
+
+    /**
      * Delete category from table
      * 
      * @param   array

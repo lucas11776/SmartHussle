@@ -16,9 +16,18 @@ class Orders_model extends CI_Model
      * 
      * @return  string
      */
-    private function join_table()
+    private function join_table_string()
     {
         return $this->products::TABLE.'.pid='.self::TABLE.'.pid';
+    }
+
+    /**
+     * Select orders table 
+     */
+    private function select_table_string ()
+    {
+        return $this->products::TABLE . '.*,' . self::TABLE . '.*,' . 
+               $this->products::TABLE . '.name as product_name';
     }
 
     /**
@@ -43,7 +52,8 @@ class Orders_model extends CI_Model
     public function get (array $where = null, int $limit = null, int $offset = null)
     {
         return $this->crud->table(self::TABLE)
-                          ->join($this->products::TABLE, $this->join_table())
+                          ->select($this->select_table_string())
+                          ->join($this->products::TABLE, $this->join_table_string())
                           ->get($where, $limit, $offset);
     }
 
@@ -58,7 +68,8 @@ class Orders_model extends CI_Model
     public function search (array $like, int $limit = null, int $offset = null)
     {
         return $this->crud->table(self::TABLE)
-                          ->join($this->products::TABLE, $this->join_table())
+                          ->select($this->select_table_string())
+                          ->join($this->products::TABLE, $this->join_table_string())
                           ->search($where, $limit, $offset);
     }
 
@@ -71,8 +82,7 @@ class Orders_model extends CI_Model
     public function count (array $where = null, bool $search = false)
     {
         return $this->crud->table(self::TABLE)
-                          ->join($this->products::TABLE, $this->join_table())
-                          ->count($where, $search);
+                          ->count($where ?? [], $search);
     }
 
     /**
