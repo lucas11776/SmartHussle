@@ -9,7 +9,7 @@ class Authorization extends DB_crud
      * 
      * @var array
      */
-    public const ROLE = ['guest' => 0, 'user' => 1, 'administratore' => 2];
+    public const ROLE = ['guest' => 0, 'user' => 1, 'administrator' => 2];
 
     /**
      * User accounts table
@@ -26,7 +26,7 @@ class Authorization extends DB_crud
     protected $user_account = [];
 
     /**
-     * Get uid form session and get user account from database
+     * Get uid from session and get user account from database
      * 
      * @return void
      */
