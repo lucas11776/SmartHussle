@@ -540,17 +540,21 @@ section
 	max-width: 100%;
 	height: auto;
 }
-.header_phone > div:first-child > div
+.header_phone > a:first-child > div
 {
 	width: 36px;
 	height: 36px;
 }
-.header_phone > div:last-child
+.header_phone > a:last-child
 {
 	font-size: 18px;
 	font-weight: 700;
 	color: #4a4a4a;
 	padding-left: 26px;
+}
+.header_phone > a:last-child:hover
+{
+	color: #2fce98;
 }
 .svg path, .svg rect, .svg polygon
 {
