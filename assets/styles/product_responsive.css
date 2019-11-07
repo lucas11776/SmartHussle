@@ -79,12 +79,12 @@
 	{
 		display: none;
 	}
-	.header_phone > div:first-child > div
+	.header_phone > a:first-child > div
 	{
 		width: 24px;
 		height: 24px;
 	}
-	.header_phone > div:last-child
+	.header_phone > a:last-child
 	{
 		font-size: 16px;
 	}

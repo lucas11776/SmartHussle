@@ -1,4 +1,4 @@
-<div class="col-xl-4 col-md-6">
+<div class="col-xl-4 col-md-6 grid-item sale">
     <div class="product">
         <div class="product_image">
             <img src="<?= base_url($picture) ?>" alt="<?= $name ?>">
