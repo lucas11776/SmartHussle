@@ -20,6 +20,7 @@ class Register extends CI_Controller
         $this->form_validation->set_rules('confirm_password', 'confirm password', 'required');
 
         if ($this->form_validation->run() === false) {
+            $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
             return $this->load->view('register');
         }
 
@@ -28,7 +29,7 @@ class Register extends CI_Controller
 
         // user account data
         $user_data = [
-            'role' => $this->user::ROLE['user'],
+            'role' => $this->auth::ROLE['user'],
             'username' => $this->input->post('username'),
             'email' => $this->input->post('email'),
             'password' => $password
@@ -40,7 +41,7 @@ class Register extends CI_Controller
             return $this->load->view('register');
         }
 
-        $this->session->set_flashdata('registered', 'You have successfully registered to SmartHussle database.');
+        $this->session->set_flashdata('registered', 'You are registerd to SmartHussle.');
         redirect('login');
     }
 
@@ -52,7 +53,7 @@ class Register extends CI_Controller
      */
     public function username_exist ($username)
     {
-        if ($this->users->username_exist($username)) {
+        if ($this->users->username_exist($username ?? '')) {
             $this->form_validation->set_message('username_exist', 'The {field} already exist please try new one.');
             return false;
         }
@@ -67,7 +68,7 @@ class Register extends CI_Controller
      */
     public function email_exist ($email)
     {
-        if ($this->users->email_exist($email)) {
+        if ($this->users->email_exist($email ?? '')) {
             $this->form_validation->set_message('email_exist', 'The {field} already exist in database.');
             return false;
         }

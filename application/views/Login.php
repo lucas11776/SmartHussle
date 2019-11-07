@@ -46,6 +46,13 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
+                                        <?php if ($this->session->flashdata('registered')): ?>
+                                            <div class="form-group">
+                                                <div class="alert alert-success">
+                                                    <i><span class="fas fa-server"></span> <?= $this->session->flashdata('registered') ?></i>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
                                         <div class="form-group">
                                             <input type="text"
                                                    name="username"
@@ -70,7 +77,7 @@
                                     <?= form_close() ?>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Create an Account!</a>
+                                        <a class="small" href="<?= base_url('register') ?>">Create an Account!</a>
                                     </div>
                                 </div>
                             </div>
