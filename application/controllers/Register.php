@@ -28,6 +28,7 @@ class Register extends CI_Controller
 
         // user account data
         $user_data = [
+            'role' => $this->user::ROLE['user'],
             'username' => $this->input->post('username'),
             'email' => $this->input->post('email'),
             'password' => $password

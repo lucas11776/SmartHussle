@@ -18,6 +18,7 @@ class Login extends CI_Controller
         $this->form_validation->set_rules('password', 'password', 'required');
 
         if ($this->form_validation->run() === false) {
+            $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
             return $this->load->view('login');
         }
 
@@ -25,7 +26,7 @@ class Login extends CI_Controller
         $account = $this->users->user($this->input->post('username'));
 
         if (count($account) === 0) {
-            $this->session->set_flashdata('form_error', 'Invalid username/email or password please try again.');
+            $this->session->set_flashdata('form_error', 'Invalid username/email or password.');
             return $this->load->view('login');
         }
 

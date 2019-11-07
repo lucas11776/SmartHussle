@@ -63,7 +63,7 @@ class Authorization extends DB_crud
      */
     public function guest (bool $redirect = true)
     {
-        $allowed = ($this->account('role') ?? 0) != self::ROLE['guest'];
+        $allowed = $this->account('role') == self::ROLE['guest'];
         if ($redirect && $allowed === false) {
             redirect('');
         }
@@ -78,7 +78,7 @@ class Authorization extends DB_crud
      */
     public function user (bool $redirect = true)
     {
-        $allowed = ($this->account('role') ?? 0) >= self::ROLE['user'];
+        $allowed = $this->account('role') >= self::ROLE['user'];
         if ($redirect && $allowed === false) {
             redirect('login');
         }
@@ -91,9 +91,9 @@ class Authorization extends DB_crud
      * @param   boolean
      * @return  boolean
      */
-    public function administrator (bool $redirect = false)
+    public function administrator (bool $redirect = true)
     {
-        $allowed = ($this->account('role') ?? 0) >= self::ROLE['administrator'];
+        $allowed = $this->account('role') >= self::ROLE['administrator'];
         if ($redirect && $allowed === false) {
             redirect('');
         }

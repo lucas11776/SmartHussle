@@ -1,80 +1,99 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <base href="<?= base_url() ?>">
+    <title>SB Admin 2 - Login</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+    <!-- Custom fonts for this template-->
+    <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <title>Smart Hussle</title>
+    <!-- Custom styles for this template-->
+    <link href="assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body class="bg-gradient-primary">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SmartHussle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('') ?>">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('store') ?>">Store</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('register') ?>">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
 
-    <div class="container pt-5">
-        <div class="col-sm-6 offset-sm-3 col-md-4 offset-md-4">
-            <?php echo validation_errors(); ?>
-            <?= form_open(uri_string()) ?>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="username">Username</label>
-                        <input type="text"
-                               name="username"
-                               class="form-control" 
-                               id="username" 
-                               placeholder="Username ..." 
-                               value="<?= set_value('username') ?>">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="password">Email Address</label>
-                        <input type="password" 
-                               name="password"
-                               class="form-control" 
-                               id="password" 
-                               placeholder="Password ..."
-                               value="<?= set_value('password') ?>">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9 mt-5">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 offset-lg-3">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4"><strong><i class="fas fa-user"></i> SmartHussle</strong></h1>
+                                    </div>
+                                    <?= form_open(uri_string(), ['class' => 'user']) ?>
+                                        <?php if ($this->session->flashdata('form_error')): ?>
+                                            <div class="form-group">
+                                                <div class="alert alert-danger">
+                                                    <i><span class="fas fa-server"></span> <?= $this->session->flashdata('form_error') ?></i>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="form-group">
+                                            <input type="text"
+                                                   name="username"
+                                                   class="form-control form-control-user <?= form_error('username','','') ? 'is-invalid' : '' ?>"
+                                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                                   placeholder="Username/email..."
+                                                   value="<?= set_value('username') ?>">
+                                            <?= form_error('username') ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password"
+                                                   name="password"
+                                                   class="form-control form-control-user <?= form_error('password','','') ? 'is-invalid' : '' ?>"
+                                                   id="exampleInputPassword" 
+                                                   placeholder="Password..."
+                                                   value="<?= set_value('password') ?>">
+                                            <?= form_error('password') ?>
+                                        </div>
+                                        <button type="submit" href="index.html" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </button>
+                                    <?= form_close() ?>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="register.html">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            <?= form_close() ?>
+
+            </div>
+
         </div>
+
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/dashboard/js/sb-admin-2.min.js"></script>
+
 </body>
 
 </html>
