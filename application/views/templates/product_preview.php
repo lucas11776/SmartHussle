@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="product_buttons">
-                <div class="text-right d-flex flex-row align-items-start justify-content-start" title="Order Online Now...">
+                <a href="<?= base_url('order/product/' . $pid) ?>" class="text-right d-flex flex-row align-items-start justify-content-start" title="Order Online Now...">
                     <div class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center">
                         <div>
                             <div>
@@ -31,7 +31,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

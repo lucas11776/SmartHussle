@@ -25,6 +25,7 @@ class Orders extends CI_Controller
         $this->form_validation->set_rules('phone_number', 'phone number', 'required');
 
         if ($this->form_validation->run() === false) {
+            $this->form_validation->set_error_delimiters('<p class="text-danger mt-1 small">', '</p>');
             $page = [
                 'product' => $this->products->get(['pid' => $pid])[0],
                 'categories' => $this->categories->get()
@@ -42,7 +43,7 @@ class Orders extends CI_Controller
         ];
 
         if ($this->orders->insert($order_data) === false) {
-            $this->form_validation->set_rules('form_error', 'Something went wrong when tring to connect to database.');
+            $this->session->set_flashdata('form_error', 'Something went wrong when tring to connect to database.');
             $page = [
                 'product' => $this->products->get(['pid' => $pid])[0],
                 'categories' => $this->categories->get()
@@ -50,7 +51,7 @@ class Orders extends CI_Controller
             return $this->load->view('order', $page);
         }
 
-        $this->session->set_flashdata('form_success', 'Your order has been sent SmartHussle will get back to you.');
+        $this->session->set_flashdata('form_success', 'Thank you for your order we will get back to you.');
         redirect(uri_string());
     }
 

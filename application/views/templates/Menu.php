@@ -21,7 +21,7 @@
 	<div class="menu_contact">
 		<div class="menu_phone d-flex flex-row align-items-center justify-content-start">
 			<div><div><img src="assets/images/phone.svg" alt="https://www.flaticon.com/authors/freepik"></div></div>
-			<div>+1 912-252-7350</div>
+			<div>+2772 876 4344</div>
 		</div>
 		<div class="menu_social">
 			<ul class="menu_social_list d-flex flex-row align-items-start justify-content-start">

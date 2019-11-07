@@ -540,12 +540,12 @@ section
 	max-width: 100%;
 	height: auto;
 }
-.header_phone > div:first-child > div
+.header_phone > a:first-child > div
 {
 	width: 36px;
 	height: 36px;
 }
-.header_phone > div:last-child
+.header_phone > a:last-child
 {
 	font-size: 18px;
 	font-weight: 700;
@@ -1073,7 +1073,7 @@ section
 	border-radius: 3px;
 	margin-top: 32px;
 }
-.checkout_button a
+.checkout_button span
 {
 	display: block;
 	font-size: 18px;
@@ -1396,7 +1396,7 @@ section
 }
 .footer_social
 {
-	margin-top: 42px;
+	margin-top: 0px;
 }
 .footer_social_list
 {

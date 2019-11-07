@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- Footer Links -->
-                <div class="col-lg-4 footer_col">
+                <div class="col-lg-4 footer_col d-none">
                     <div class="footer_menu">
                         <div class="footer_title">Category</div>
                         <ul class="footer_list">
@@ -37,9 +37,9 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="col-lg-4 footer_col"></div>
                 <!-- Footer Contact -->
-                <div class="col-lg-4 footer_col">
+                <div class="col-lg-4 offset footer_col">
                     <div class="footer_contact">
                         <div class="footer_social">
                             <div class="footer_title">Social</div>
@@ -61,7 +61,7 @@
                 <div class="col">
                     <div class="footer_bar_content d-flex flex-md-row flex-column align-items-center justify-content-start">
                         <div class="copyright order-md-1 order-2"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy; <?= date('Y') ?> SmartHussle | Web-Developer <a href="https://thembangubeni.epizy.com" target="_blank">T.L.Ngubeni</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
                         <nav class="footer_nav ml-md-auto order-md-2 order-1">
                             <ul class="d-flex flex-row align-items-center justify-content-start">

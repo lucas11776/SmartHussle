@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="description" content="Little Closet template">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+		<base href="<?= base_url() ?>">
         <link rel="stylesheet" type="text/css" href="assets/styles/bootstrap-4.1.2/bootstrap.min.css">
         <link href="assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="assets/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
@@ -18,13 +19,13 @@
 
 <!-- Menu -->
 
-<?= $this->load->view('templates/menu', ['active' => 'home'], true) ?>
+<?= $this->load->view('templates/menu', [], true) ?>
 
 <div class="super_container">
 
 	<!-- Header -->
 
-	<?= $this->load->view('templates/header', ['active' => 'home'], true) ?>
+	<?= $this->load->view('templates/header', [], true) ?>
 
 	<div class="super_container_inner">
 		<div class="super_overlay"></div>
@@ -67,7 +68,9 @@
 				</div>
 				<div class="row load_more_row">
 					<div class="col">
-						<div class="button load_more ml-auto mr-auto"><a href="#">load more</a></div>
+						<div class="button load_more ml-auto mr-auto">
+							<a href="<?= base_url('store') ?>">load more</a>
+						</div>
 					</div>
 				</div>
 			</div>
