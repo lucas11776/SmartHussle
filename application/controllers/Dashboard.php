@@ -33,7 +33,11 @@ class Dashboard extends CI_Controller
         // authorization administrator
         $this->auth->administrator();
 
-        $page = ['products' => $this->products->get()];
+        $page = [
+            'number_messages' => $this->messages->count(),
+            'number_orders' => $this->orders->count(),
+            'products' => $this->products->get()
+        ];
         $this->load->view('dashboard/products', $page);
     }
 
@@ -44,7 +48,11 @@ class Dashboard extends CI_Controller
      */
     public function orders ()
     {
-        $page = ['orders' => $this->orders->get()];
+        $page = [
+            'number_messages' => $this->messages->count(),
+            'number_orders' => $this->orders->count(),
+            'orders' => $this->orders->get()
+        ];
         $this->load->view('dashboard/orders', $page);
     }
 
@@ -58,7 +66,11 @@ class Dashboard extends CI_Controller
         // authorization administrator
         $this->auth->administrator();
 
-        $page = ['messages' => $this->messages->get()];
+        $page = [
+            'number_messages' => $this->messages->count(),
+            'number_orders' => $this->orders->count(),
+            'messages' => $this->messages->get()
+        ];
         $this->load->view('dashboard/messages', $page);
     }
 
@@ -72,7 +84,11 @@ class Dashboard extends CI_Controller
         // authorization administrator
         $this->auth->administrator();
         
-        $page = ['users' => $this->users->get()];
+        $page = [
+            'number_messages' => $this->messages->count(),
+            'number_orders' => $this->orders->count(),
+            'users' => $this->users->get()
+        ];
         $this->load->view('dashboard/users', $page);
     }
 
