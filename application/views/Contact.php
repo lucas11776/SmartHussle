@@ -1,136 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <base href="<?= base_url() ?>">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
-
-    <title>Smart Hussle</title>
-</head>
-
+	<head>
+		<title>Contact Us</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="Little Closet template">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<base href="<?= base_url() ?>"/>
+		<link rel="stylesheet" type="text/css" href="assets/styles/bootstrap-4.1.2/bootstrap.min.css">
+		<link href="assets/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="assets/styles/checkout.css">
+		<link rel="stylesheet" type="text/css" href="assets/styles/checkout_responsive.css">
+	</head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SmartHussle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('') ?>">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('store') ?>">Store</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('register') ?>">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<!-- Menu -->
 
-    <div class="container pt-5 pb-5">
-        <div class="col-md-8 offset-md-2">
-            <?php echo validation_errors(); ?>
-            <?php if ($this->session->flashdata('form_error')): ?>
-                <div class="alert alert-danger">
-                    <i><?= $this->session->flashdata('form_error') ?></i>
-                </div>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('form_success')): ?>
-                <div class="alert alert-success">
-                    <i><?= $this->session->flashdata('form_success') ?></i>
-                </div>
-            <?php endif; ?>
+<?= $this->load->view('templates/menu', [], true) ?>
 
-            <?= form_open('dashboard/messages/delete') ?>
-                <input type="hidden" name="id" value="1">
-                <input type="hidden" name="redirect" value="<?= uri_string() ?>">                
-                <button type="submit">Delete</button>
-            <?= form_close() ?>
+<div class="super_container">
 
-            <?= form_open(uri_string()) ?>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="name">Name</label>
-                        <input type="text"
-                               name="name"
-                               class="form-control" 
-                               id="name" 
-                               placeholder="Name ..." 
-                               value="<?= set_value('name') ?>">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="surname">Surname</label>
-                        <input type="eamil" 
-                               name="surname"
-                               class="form-control" 
-                               id="surname" 
-                               placeholder="Surname ..."
-                               value="<?= set_value('surname') ?>">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="phone-number">Phone Number</label>
-                        <input type="text"
-                               name="phone_number"
-                               class="form-control"
-                               id="phone-number"
-                               placeholder="Phone Number ..."
-                               value="<?= set_value('phone_number') ?>">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="email">Email Address</label>
-                        <input type="email"
-                               name="email"
-                               class="form-control"
-                               id="email"
-                               placeholder="Email Address ..."
-                               value="<?= set_value('email') ?>">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="subject">Subject</label>
-                        <input type="text"
-                               name="subject"
-                               class="form-control"
-                               id="subject"
-                               placeholder="Subject ..."
-                               value="<?= set_value('subject') ?>">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <textarea class="form-control" 
-                                  rows="6" 
-                                  name="message"
-                                  placeholder="Message ..."><?= set_value('message') ?></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg">Register</button>
-            <?= form_close() ?>
-        </div>
-    </div>
+	<!-- Header -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+	<?= $this->load->view('templates/header', ['active' => 'contact'], true) ?>
+
+	<div class="super_container_inner">
+		<div class="super_overlay"></div>
+
+		<!-- Home -->
+
+		<div class="home">
+			<div class="home_container d-flex flex-column align-items-center justify-content-end">
+				<div class="home_content text-center">
+					<div class="home_title"><i>Get In Touch With Us.</i></div>
+					<div class="breadcrumbs d-flex flex-column align-items-center justify-content-center">
+						<ul class="d-flex flex-row align-items-start justify-content-start text-center">
+							<li>Have a questiion about us just send a message.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Checkout -->
+
+		<div class="checkout">
+			<div class="container">
+				<div class="row">
+
+					<!-- Billing -->
+					<div class="col-lg-8 offset-lg-2">
+						<div class="billing pb-5">
+							<div class="checkout_title"><span class="fa fa-envelope-open-o"></span> Write us a quick message.</div>
+							<div class="checkout_form_container">
+								<?= form_open(uri_string(), ['id' => 'checkout_form', 'class' => 'checkout_form']) ?>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <?php if ($this->session->flashdata('form_success')): ?>
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    <small>
+                                                        <strong><i class="fa fa-server"></i> <?= $this->session->flashdata('form_success') ?></strong>
+                                                    </small>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <?php endif; ?>
+                                            <?php if ($this->session->flashdata('form_error')): ?>
+                                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <small>
+                                                        <strong><i class="fa fa-server"></i> <?= $this->session->flashdata('form_error') ?></strong>
+                                                    </small>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+										<div class="col-lg-6">
+											<!-- Name -->
+											<input type="text"
+												   name="name"
+                                                   id="name" 
+                                                   class="checkout_input" 
+                                                   placeholder="Name." 
+                                                   value="<?= set_value('name') ?>"
+												   required="required">
+                                            <?= form_error('name') ?>     
+										</div>
+										<div class="col-lg-6">
+											<!-- Surname -->
+											<input type="text"
+												   name="surname"
+                                                   id="surname" 
+                                                   class="checkout_input" 
+                                                   placeholder="Surname." 
+                                                   value="<?= set_value('surname') ?>"
+												   required="required">
+                                            <?= form_error('surname') ?>
+										</div>
+									</div>
+									<div>
+										<!-- Phone Number -->
+										<input type="text"
+											   name="phone_number"
+										       id="phone-number" 
+											   class="checkout_input" 
+											   placeholder="Phone No." 
+											   value="<?= set_value('phone_number') ?>">
+										<?= form_error('phone_number') ?>     
+									</div>
+									<div>
+										<!-- Email -->
+										<input type="email"
+											   name="email"
+											   id="email" 
+											   class="checkout_input" 
+											   placeholder="Email Address." 
+											   value="<?= set_value('email') ?>"
+											   required="required">
+										<?= form_error('email') ?>
+									</div>
+									<div class="row">
+										<div class="col-lg-7">
+											<!-- Subject -->
+											<input type="text"
+												   name="subject"
+                                                   id="subject" 
+                                                   class="checkout_input" 
+                                                   placeholder="Message Subject." 
+                                                   value="<?= set_value('subject') ?>"
+												   required="required">
+                                            <?= form_error('subject') ?>     
+										</div>
+									</div>
+									<div>
+										<!-- Email -->
+										<textarea name="message"
+                                                  id="message" 
+                                               	  class="checkout_input p-3" 
+                                                  placeholder="Message to SmartHussle."
+                                                  style="height: 100px;"
+											      required="required"><?= set_value('message') ?></textarea>
+                                        <?= form_error('message') ?>
+									</div>
+                                    <button type="submit" class="btn mt-2 checkout_button trans_200 text-white">
+                                        <strong class="text-uppercase"><i class="fa fa-send-o"></i> Send Message</strong>
+                                    </button>
+								<?= form_close() ?>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+
+		<?= $this->load->view('templates/footer', [], true) ?>
+        
+	</div>
+		
+</div>
+
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script src="assets/styles/bootstrap-4.1.2/popper.js"></script>
+<script src="assets/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+<script src="assets/plugins/greensock/TweenMax.min.js"></script>
+<script src="assets/plugins/greensock/TimelineMax.min.js"></script>
+<script src="assets/plugins/scrollmagic/ScrollMagic.min.js"></script>
+<script src="assets/plugins/greensock/animation.gsap.min.js"></script>
+<script src="assets/plugins/greensock/ScrollToPlugin.min.js"></script>
+<script src="assets/plugins/easing/easing.js"></script>
+<script src="assets/plugins/parallax-js-master/parallax.min.js"></script>
+<script src="assets/js/checkout.js"></script>
 </body>
-
 </html>

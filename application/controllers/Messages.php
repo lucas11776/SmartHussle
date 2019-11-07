@@ -14,11 +14,12 @@ class Messages extends CI_Controller
         $this->form_validation->set_rules('name', 'name', 'required|min_length[2]|max_length[50]');
         $this->form_validation->set_rules('surname', 'surname', 'required|min_length[2]|max_length[50]');
         $this->form_validation->set_rules('subject', 'subject', 'required|min_length[10]|max_length[100]');
-        $this->form_validation->set_rules('email', 'email', 'valid_email');
-        $this->form_validation->set_rules('phone_number', 'phone number', 'required|min_length[10]|max_length[15]');
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email');
+        $this->form_validation->set_rules('phone_number', 'phone number', 'min_length[10]|max_length[15]');
         $this->form_validation->set_rules('message', 'message', 'required|min_length[10]|max_length[2000]');
 
         if ($this->form_validation->run() === false) {
+            $this->form_validation->set_error_delimiters('<p class="text-danger mt-1 small">', '</p>');
             return $this->load->view('contact');
         }
 
@@ -27,7 +28,7 @@ class Messages extends CI_Controller
             'name' => $this->input->post('name'),
             'surname' => $this->input->post('surname'),
             'subject' => $this->input->post('subject'),
-            'email' => $this->input->post('eamil') ?? '',
+            'email' => $this->input->post('email') ?? '',
             'phone_number' => $this->input->post('phone_number'),
             'message' => $this->input->post('message')
         ];

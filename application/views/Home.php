@@ -25,7 +25,7 @@
 
 	<!-- Header -->
 
-	<?= $this->load->view('templates/header', [], true) ?>
+	<?= $this->load->view('templates/header', ['active' => 'home'], true) ?>
 
 	<div class="super_container_inner">
 		<div class="super_overlay"></div>

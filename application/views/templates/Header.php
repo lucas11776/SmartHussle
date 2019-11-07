@@ -12,11 +12,11 @@
         <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
         <nav class="main_nav">
             <ul class="d-flex flex-row align-items-start justify-content-start">
-                <li><a href="<?= base_url('') ?>">Home</a></li>
-                <li><a href="<?= base_url('store') ?>">Store</a></li>
-                <li><a href="<?= base_url('register') ?>">Register</a></li>
-                <li><a href="<?= base_url('login') ?>">Login</a></li>
-                <li><a href="<?= base_url('contact') ?>">Contact</a></li>
+                <li class="<?= ($active ?? '') == 'home' ? 'active' : '' ?>"><a href="<?= base_url('') ?>">Home</a></li>
+                <li class="<?= ($active ?? '') == 'store' ? 'active' : '' ?>"><a href="<?= base_url('store') ?>">Store</a></li>
+                <li class="<?= ($active ?? '') == 'register' ? 'active' : '' ?>"><a href="<?= base_url('register') ?>">Register</a></li>
+                <li class="<?= ($active ?? '') == 'login' ? 'active' : '' ?>"><a href="<?= base_url('login') ?>">Login</a></li>
+                <li class="<?= ($active ?? '') == 'contact' ? 'active' : '' ?>"><a href="<?= base_url('contact') ?>">Contact</a></li>
             </ul>
         </nav>
         <div class="header_right d-flex flex-row align-items-center justify-content-start ml-auto">
