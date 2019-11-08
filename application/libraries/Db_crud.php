@@ -54,6 +54,7 @@ class DB_Crud
      */
     public function select (string $select)
     {
+        $this->db->reset_query();
         $this->db->select($select);
         return $this;
     }
@@ -79,6 +80,7 @@ class DB_Crud
      */
     public function insert (array $data)
     {
+        $this->db->reset_query();
         return $this->db->insert($this->db_table, $data);
     }
 
@@ -96,7 +98,7 @@ class DB_Crud
             if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
             else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
         }
-        return $this->db->order_by($this->db_table . '.created', 'DESC')
+        return $this->db//->order_by($this->db_table . '.created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
                         ->result_array();
     }
@@ -111,6 +113,7 @@ class DB_Crud
      */
     public function search (array $like = [], int $limit = null, int $offset = null)
     {
+        $this->db->reset_query();
         $this->like($data);
         return $this->db->order_by($this->db_table . '.created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
@@ -155,6 +158,7 @@ class DB_Crud
      */
     public function delete (array $where)
     {
+        $this->db->reset_query();
         return $this->db->where($where)
                         ->delete($this->db_table);
     }

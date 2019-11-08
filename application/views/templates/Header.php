@@ -52,7 +52,7 @@
                         <img src="assets/images/phone.svg" alt="https://www.flaticon.com/authors/freepik">
                     </div>
                 </a>
-                <a href="tel:072 876 4344">+2772 876 4344</a>
+                <a href="tel:072 876 4344">072 876 4344</a>
             </div>
         </div>
     </div>
