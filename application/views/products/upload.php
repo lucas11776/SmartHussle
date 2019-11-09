@@ -1,114 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
     <base href="<?= base_url() ?>">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+    <title>SB Admin 2 - Dashboard</title>
 
-    <title>Smart Hussle</title>
+    <!-- Custom fonts for this template-->
+    <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body id="page-top">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SmartHussle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('') ?>">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('store') ?>">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('contact') ?>">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('register') ?>">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login') ?>">Login</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <div class="container pt-5 pb-5">
-        <div class="col-md-8 offset-md-2">
-            <?php echo validation_errors(); ?>
-            <?php if ($this->session->flashdata('form_success')): ?>
-                <div class="alert alert-success">
-                    <i><?= $this->session->flashdata('form_success') ?></i>
-                </div>
-            <?php endif; ?>
-            <?= form_open_multipart(uri_string()) ?>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="picture">Picture</label>
-                        <input type="file"
-                               name="picture"
-                               class="form-control" 
-                               id="picture" 
-                               placeholder="picture ..." 
-                               value="<?= set_value('picture') ?>">
+        <!-- Sidebar -->
+        <?= $this->load->view('templates/sidebar', [], true) ?>
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <?= $this->load->view('templates/topbar', ['orders' => $number_orders, 'messages' => $number_messages], true) ?>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-shopping-bag"></span> Upload Product</h1>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="name">Product Name</label>
-                        <input type="eamil" 
-                               name="name"
-                               class="form-control" 
-                               id="name" 
-                               placeholder="name ..."
-                               value="<?= set_value('name') ?>">
+
+                    <!-- Content Row -->
+                    <?= form_open(uri_string(), ['class' => 'row pt-3 col-md-8 col-lg-6 offset-md-2 offset-lg-3']) ?>
+
+                    <div class="form-group col-12">
+                        <label for="exampleFormControlFile1">Example file input</label>
+                        <input type="file" 
+                               class="form-control-file" 
+                               id="exampleFormControlFile1">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="picture">Price</label>
-                        <input type="price"
-                               name="price"
-                               class="form-control"
-                               id="price"
-                               placeholder="price ..."
-                               value="<?= set_value('price') ?>">
+
+                    <div class="form-group col-12">
+                        <label for="inputEmail4">Product Name</label>
+                        <input type="email" 
+                               class="form-control form-control-lg" 
+                               id="inputEmail4" 
+                               placeholder="Email">
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="name">Category</label>
-                        <select class="form-control" name="category">
-                            <option value="<?= set_value('category') ?>">Select Category</option>
-                            <?php for ($i = 0; $i < count($categories); $i++): ?>
-                                <option value="<?= array_values($categories)[$i]['slug'] ?>">
-                                    <?= array_values($categories)[$i]['name'] ?>
-                                </option>
-                            <?php endfor; ?>
+
+                    <div class="form-group col-12">
+                        <label for="inputEmail4">Product Name</label>
+                        <input type="email" 
+                               class="form-control form-control-lg" 
+                               id="inputEmail4" 
+                               placeholder="Email">
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label for="inputEmail4">Category</label>
+                        <select type="email" 
+                                class="form-control form-control-lg" 
+                                id="inputEmail4" 
+                                placeholder="Email">
+                        
                         </select>
                     </div>
+
+                    <?= form_close() ?>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="picture">Decription</label>
-                        <textarea class="form-control" rows="4" name="description"><?= set_value('description') ?></textarea>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; SmartHussle 2019</span>
                     </div>
                 </div>
+            </footer>
+            <!-- End of Footer -->
 
-                <button type="submit" class="btn btn-primary btn-lg">Register</button>
-            <?= form_close() ?>
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="<?= base_url('logout') ?>">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/dashboard/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+
+    <!-- Page level custom scripts -->
+
 </body>
 
 </html>

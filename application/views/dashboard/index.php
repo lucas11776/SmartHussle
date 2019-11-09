@@ -45,6 +45,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-chart-line"></span> Stats</h1>
+                    </div>
+
                     <!-- Content Row -->
                     <div class="row">
 
@@ -139,7 +144,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2019</span>
+                        <span>Copyright &copy; SmartHussle 2019</span>
                     </div>
                 </div>
             </footer>
@@ -157,8 +162,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -187,11 +191,8 @@
     <script src="assets/dashboard/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="assets/dashboard/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="assets/dashboard/js/demo/chart-area-demo.js"></script>
-    <script src="assets/dashboard/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

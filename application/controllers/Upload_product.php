@@ -24,7 +24,9 @@ class Upload_product extends CI_Controller
             // delete product picture
             $this->picture_delete();
             $page = [
-                'categories' => $this->categories->get()
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->orders->count()
             ];
             return $this->load->view('products/upload', $page);
         }
@@ -43,6 +45,11 @@ class Upload_product extends CI_Controller
         if ($this->products->insert($product_data) === false) {
             // delete product picture
             $this->picture_delete();
+            $page = [
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->orders->count()
+            ];
             $this->session->set_flashdata('form_error', 'Something went wrong when tring to connect to database');
             return $this->load->view('products/upload');
         }

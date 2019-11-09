@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('') ?>">
         <div class="sidebar-brand-icon">
             <i class="fas fa-coffee"></i>
         </div>
@@ -13,7 +13,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link">
+        <a class="nav-link" href="<?= base_url('dashboard') ?>">
             <i class="fas fa-fw fa-umbrella"></i> <span>Dashboard</span>
         </a>
     </li>
@@ -29,14 +29,14 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/categories') ?>">
             <i class="fas fa-fw fa-store-alt"></i><span> Category</span>
         </a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/upload/product') ?>">
             <i class="fas fa-fw fa-shopping-bag"></i><span>Product</span>
         </a>
     </li>
@@ -49,30 +49,30 @@
         Menu
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/orders') ?>">
             <i class="fas fa-fw fa-ticket-alt"></i><span> Orders</span>
         </a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/messages') ?>">
             <i class="fas fa-fw fa-envelope"></i><span> Messages</span>
         </a>
     </li>
 
+    <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/products') ?>">
             <i class="fas fa-fw fa-shopping-cart"></i><span> Store</span>
         </a>
     </li>
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="<?= base_url('dashboard/categories') ?>">
             <i class="fas fa-fw fa-users"></i><span> Users</span>
         </a>
     </li>
