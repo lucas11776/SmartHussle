@@ -15,7 +15,9 @@ class Categories extends CI_Controller
         $this->auth->administrator();
 
         $page = [
-            'categories' => $this->categories->get()
+            'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
         ];
         $this->load->view('categories/index', $page);
     }
@@ -33,8 +35,11 @@ class Categories extends CI_Controller
         $this->form_validation->set_rules('name', 'category', 'required|callback_product_exist');
 
         if ($this->form_validation->run() === false) {
+            $this->form_validation->set_error_delimiters('<p class="invalid-feedback">', '</p>');
             $page = [
-                'categories' => $this->categories->get()
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
             ];
             return $this->load->view('categories/index', $page);
         }
@@ -44,17 +49,21 @@ class Categories extends CI_Controller
             'name' => strtolower($this->input->post('name'))
         ];
 
-        if ($this->categories->insert($category_data)) {
+        if ($this->categories->insert($category_data) === false) {
             $this->session->set_flashdata('form_error', 'Something went wrong when tring to connec to database');
             $page = [
-                'categories' => $this->categories->get()
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
             ];
             return $this->load->view('categories/index', $page);
         }
 
         $this->session->set_flashdata('form_success', 'Category has been inserted in database.');
         $page = [
-            'categories' => $this->categories->get()
+            'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
         ];
         return $this->load->view('categories/index', $page);
     }
@@ -73,7 +82,9 @@ class Categories extends CI_Controller
 
         if ($this->form_validation->run() === false) {
             $page = [
-                'categories' => $this->categories->get()
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
             ];
             return $this->load->view('categories/index', $page);
         }
@@ -82,16 +93,21 @@ class Categories extends CI_Controller
         $delete_data = ['cid' => $this->input->post('id')];
 
         if ($this->categories->delete($delete_data) === false) {
+            $this->form_validation->set_error_delimiters('<p class="text-danger">', '</p>');
             $this->session->set_flashdata('form_error', 'Something went wrong when tring to connec to database');
             $page = [
-                'categories' => $this->categories->get()
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
             ];
             return $this->load->view('categories/index', $page);
         }
 
         $this->session->set_flashdata('form_success', 'Category has been deleted successfully.');
         $page = [
-            'categories' => $this->categories->get()
+            'categories' => $this->categories->get(),
+            'number_orders' => $this->orders->count(),
+            'number_messages' => $this->messages->count()
         ];
         $this->load->view('categories/index', $page);
     }
