@@ -47,7 +47,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-chart-line"></span> Stats</h1>
+                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-store"></span> Categories</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -74,14 +74,14 @@
                                 <div class="input-group mb-3">
                                     <input name="name" 
                                            type="text" 
-                                           class="form-control <?= form_error('name') ? 'is-invalid' : '' ?>" 
-                                           placeholder="Add Product Category..."
+                                           class="form-control form-control-lg <?= form_error('name') ? 'is-invalid' : '' ?>" 
+                                           placeholder="Add Category..."
                                            aria-label="Recipient's username" 
                                            aria-describedby="basic-addon2"
                                            value="<?= set_value('name') ?>">
                                     <div class="input-group-append">
-                                        <button class="input-group-text" id="basic-addon2">
-                                            Add Category
+                                        <button class="input-group-text text-uppercase" id="basic-addon2">
+                                            <strong>Add +</strong>
                                         </button>
                                     </div>
                                     <?= form_error('name') ?>

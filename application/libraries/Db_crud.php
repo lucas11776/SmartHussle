@@ -98,7 +98,7 @@ class DB_Crud
             if ($i === 0) $this->db->where(array_keys($where)[$i], array_values($where)[$i]);
             else $this->db->or_where(array_keys($where)[$i], array_values($where)[$i]);
         }
-        return $this->db//->order_by($this->db_table . '.created', 'DESC')
+        return $this->db->order_by($this->db_table . '.created', 'DESC')
                         ->get($this->db_table, $limit, $offset)
                         ->result_array();
     }

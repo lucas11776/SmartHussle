@@ -71,12 +71,12 @@ class Upload_product extends CI_Controller
     {
         // upload picture configuration
         $upload_picture_config = [
-            'upload_path' => $this->products::PICTURE_PATH,
+            'upload_path'   => $this->products::PICTURE_PATH,
             'allowed_types' => $this->products::PICTURE_EXTENSION,
-            'max_size' => $this->products::MAX_PICTURE_SIZE,
-            'min_width' => $this->products::MIN_PICTURE_WIDTH,
-            'min_hieght' => $this->products::MIN_PICTURE_HEIGHT,
-            'file_name' => $this->input->post('name') ?? 'Delete-' . uniqid()
+            'max_size'      => $this->products::MAX_PICTURE_SIZE,
+            'min_width'     => $this->products::MIN_PICTURE_WIDTH,
+            'min_hieght'    => $this->products::MIN_PICTURE_HEIGHT,
+            'file_name'     => $this->input->post('name') ?? 'delete-' . uniqid()
         ];
         $this->upload->initialize($upload_picture_config);
         // upload picture

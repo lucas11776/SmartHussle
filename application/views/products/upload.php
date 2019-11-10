@@ -55,7 +55,7 @@
                     </div>
 
                     <!-- Content Row -->
-                    <?= form_open(uri_string(), ['class' => 'row pt-3 col-md-8 col-lg-6 offset-md-2 offset-lg-3']) ?>
+                    <?= form_open_multipart(uri_string(), ['class' => 'row pt-3 col-md-8 col-lg-6 offset-md-2 offset-lg-3']) ?>
 
                         <div class="col-12">
                             <?php if ($this->session->flashdata('form_error')): ?>

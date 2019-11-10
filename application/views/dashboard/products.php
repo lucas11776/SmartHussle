@@ -1,81 +1,179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     <base href="<?= base_url() ?>">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
+    <title>SB Admin 2 - Dashboard</title>
 
-    <title>Smart Hussle</title>
+    <!-- Custom fonts for this template-->
+    <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="assets/dashboard/css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
-<body>
+<body id="page-top">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SmartHussle</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= base_url('dashboard') ?>">Dashboard <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('dashboard/products') ?>">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('dashboard/products') ?>">products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('dashboard/messages') ?>">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('dashboard/users') ?>">Users</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <div class="container">
-        <div class="row">
-        <?php for ($i = 0; $i < count($products); $i++): ?>
-                <div class="col-sm-6 col-md-4">
-                    <div class="card">
-                        <div class="card-title">
-                            <h5><?= $products[$i]['name'] ?></h5>
-                        </div>
-                        <div class="card-img">
-                            <img src="<?= $products[$i]['picture'] ?>" class="img-thumbnail">
-                        </div>
-                        <div class="card-text">
-                            <ul class="list-unstyled list-inline">
-                                <li><strong>R</strong><?= $products[$i]['price'] ?></li>
-                                <li><?= $products[$i]['category'] ?></li>
-                            </ul>
-                            <br/>
-                            <?= form_open('dashboard/products/delete', ['class' => 'text-center']) ?>
-                                <input name="id" type="hidden" value="<?= $products[$i]['pid'] ?>">
-                                <input name="redirect" type="hidden" value="<?= uri_string() ?>">
-                                <button type="submit" class="btn btn-danger">Delete Order</button>
-                            <?= form_close() ?>
-                            <br/>
-                        </div>
+        <!-- Sidebar -->
+        <?= $this->load->view('templates/sidebar', [], true) ?>
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <?= $this->load->view('templates/topbar', ['orders' => $number_orders, 'messages' => $number_messages], true) ?>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-shopping-bag"></span> Products</h1>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+                        <?php for ($i = 0; $i < count($products); $i++): ?>
+                            <div class="col-sm-6 col-md-4 mb-4">
+                                <div class="card">
+                                    <img src="<?= $products[$i]['picture'] ?>" height="300" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= word_limiter($products[$i]['name'], 10) ?></h5>
+                                        <p class="card-text"><?= word_limiter($products[$i]['description'], 30) ?></p>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button type="button"
+                                                    class="btn btn-outline-danger deleteProductBtn"
+                                                    data-toggle="modal" 
+                                                    data-target="#deleteProductModal"
+                                                    value="<?= $products[$i]['pid'] ?>">
+                                                <span class="fas fa-trash"></span> Delete
+                                            </button>
+                                            <a href="<?= base_url('dashboard/products/' . $products[$i]['slug']) ?>" class="btn btn-outline-info">
+                                                <span class="fas fa-edit"></span> Edit
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; SmartHussle 2019</span>
                     </div>
                 </div>
-            <?php endfor; ?>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+    <!-- Delete Category Modal -->
+    <div class="modal fade" id="deleteProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger" id="exampleModalLabel"><span class="fas fa-trash"></span> Delete</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Are you sure your want to delete "Product" click delete to confirm.</div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <?= form_open('dashboard/products/delete', ['class' => 'model-footer']) ?>
+                        <input type="hidden" name="id" value="" id="deleteProductInput">
+                        <input type="hidden" name="redirect" value="<?= uri_string() ?>">
+                        <button class="btn btn-danger" type="submit">
+                            <span class="fas fa-trash-o"></span> Delete
+                        </button>
+                    <?= form_close() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="assets/dashboard/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="assets/dashboard/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="assets/dashboard/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+
+    <!-- Page level custom scripts -->
+
+    <!-- Custom Javascript -->
+    <script>
+
+        $(document).ready(function() {
+            $('.deleteProductBtn').click(function() {
+                $('#deleteProductInput').val($(this).val());
+            });
+        });
+
+    </script>
+
 </body>
 
 </html>
