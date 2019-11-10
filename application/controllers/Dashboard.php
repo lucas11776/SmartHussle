@@ -47,7 +47,10 @@ class Dashboard extends CI_Controller
      * @Maps http://website/dashboard/orders
      */
     public function orders ()
-    {
+    { 
+        // authorization administrator
+        $this->auth->administrator();
+
         $page = [
             'orders' => $this->orders->get(),
             'number_messages' => $this->messages->count(),

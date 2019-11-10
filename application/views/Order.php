@@ -144,8 +144,7 @@
                                                id="email" 
                                                class="checkout_input" 
                                                placeholder="Email" 
-                                               value="<?= set_value('email') ?>"
-											   required="required">
+                                               value="<?= set_value('email') ?>">
                                         <?= form_error('email') ?>
 									</div>
                                     <button type="submit" class="btn mt-2 checkout_button trans_200 text-white">
