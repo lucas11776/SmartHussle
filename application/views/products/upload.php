@@ -49,44 +49,103 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-shopping-bag"></span> Upload Product</h1>
+                        <h1 class="h3 mb-0 text-gray-800">
+                            <span class="fas fa-shopping-bag"></span> Upload Product
+                        </h1>
                     </div>
 
                     <!-- Content Row -->
                     <?= form_open(uri_string(), ['class' => 'row pt-3 col-md-8 col-lg-6 offset-md-2 offset-lg-3']) ?>
 
-                    <div class="form-group col-12">
-                        <label for="exampleFormControlFile1">Example file input</label>
-                        <input type="file" 
-                               class="form-control-file" 
-                               id="exampleFormControlFile1">
-                    </div>
+                        <div class="col-12">
+                            <?php if ($this->session->flashdata('form_error')): ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i><span class="fa fa-server"></span> <?= $this->session->flashdata('form_error') ?></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($this->session->flashdata('form_success')): ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i><span class="fa fa-server"></span> <?= $this->session->flashdata('form_success') ?></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                        </div>
 
-                    <div class="form-group col-12">
-                        <label for="inputEmail4">Product Name</label>
-                        <input type="email" 
-                               class="form-control form-control-lg" 
-                               id="inputEmail4" 
-                               placeholder="Email">
-                    </div>
+                        <!-- Picture -->
+                        <div class="form-group col-12">
+                            <label for="picture"><span class="fa fa-image"></span> Product Picture</label>
+                            <input type="file"
+                                   name="picture"
+                                   class="form-control-file <?= form_error('picture','','') ? 'is-invalid' : '' ?>" 
+                                   id="picture">
+                            <?= form_error('picture') ?></p>
+                        </div>
 
-                    <div class="form-group col-12">
-                        <label for="inputEmail4">Product Name</label>
-                        <input type="email" 
-                               class="form-control form-control-lg" 
-                               id="inputEmail4" 
-                               placeholder="Email">
-                    </div>
+                        <!-- Name -->
+                        <div class="form-group col-12">
+                            <label for="name"><span class="fa fa-shopping-bag"></span> Product Name</label>
+                            <input type="text"
+                                   name="name" 
+                                   class="form-control form-control-lg <?= form_error('name','','') ? 'is-invalid' : '' ?>" 
+                                   id="name" 
+                                   value="<?= set_value('name') ?>"
+                                   placeholder="Product Name...">
+                            <?= form_error('name') ?>
+                        </div>
 
-                    <div class="form-group col-12">
-                        <label for="inputEmail4">Category</label>
-                        <select type="email" 
-                                class="form-control form-control-lg" 
-                                id="inputEmail4" 
-                                placeholder="Email">
-                        
-                        </select>
-                    </div>
+                        <!-- Price -->
+                        <div class="form-group col-12">
+                            <label for="price"><span class="fa fa-money-bill-alt"></span> Price</label>
+                            <input type="text"
+                                   name="price"
+                                   class="form-control form-control-lg <?= form_error('price','','') ? 'is-invalid' : '' ?>" 
+                                   id="price" 
+                                   value="<?= set_value('price') ?>"
+                                   placeholder="Price (Rands)...">
+                            <?= form_error('price') ?>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="form-group col-12">
+                            <label for="category"><span class="fa fa-store-alt"></span> Category</label>
+                            <select type="text"
+                                    name="category"
+                                    class="form-control form-control-lg text-capitalize <?= form_error('category','','') ? 'is-invalid' : '' ?>" 
+                                    id="category">
+                                <option value="<?= set_value('category') ?>">
+                                    <?= set_value('category') ? set_value('category') : '--- Select Product Category ---' ?></option>
+                                <?php for($i = 0; $i < count($categories); $i++): ?>
+                                    <option value="<?= $categories[$i]['slug'] ?>"><?= $categories[$i]['name'] ?></option>
+                                <?php endfor; ?>
+                            </select>
+                            <?= form_error('category') ?>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="form-group col-12">
+                            <label for="description"><span class="fa fa-paperclip"></span> Description</label>
+                            <textarea name="description"
+                                      class="form-control form-control-lg <?= form_error('description','','') ? 'is-invalid' : '' ?>" 
+                                      id="description"
+                                      placeholder="Product Description..." rows="4"><?= set_value('description') ?></textarea>
+                            <?= form_error('description') ?>
+                        </div>
+
+                        <div class="form-group col-12 mt-4 mb-5">
+                            <button type="submit" class="btn btn-success btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </span>
+                                <span class="text">
+                                    Upload Product
+                                </span>
+                            </button>
+                        </div>
 
                     <?= form_close() ?>
                 </div>

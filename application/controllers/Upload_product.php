@@ -17,12 +17,13 @@ class Upload_product extends CI_Controller
         $this->form_validation->set_rules('picture', 'picture', 'callback_picture_upload');
         $this->form_validation->set_rules('category', 'category', 'required|callback_category_exist');
         $this->form_validation->set_rules('name', 'product', 'required|callback_product_exist');
-        $this->form_validation->set_rules('price', 'price', 'required');
-        $this->form_validation->set_rules('decription', 'decription', '');
+        $this->form_validation->set_rules('price', 'price', 'required|integer');
+        $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() === false) {
             // delete product picture
             $this->picture_delete();
+            $this->form_validation->set_error_delimiters('<p class="invalid-feedback">','</p>');
             $page = [
                 'categories' => $this->categories->get(),
                 'number_orders' => $this->orders->count(),
@@ -51,7 +52,7 @@ class Upload_product extends CI_Controller
                 'number_messages' => $this->orders->count()
             ];
             $this->session->set_flashdata('form_error', 'Something went wrong when tring to connect to database');
-            return $this->load->view('products/upload');
+            return $this->load->view('products/upload', $page);
         }
 
         $this->session->set_flashdata('form_success', 'Product has been uploaded to SmartHussle database.');
@@ -94,7 +95,7 @@ class Upload_product extends CI_Controller
      */
     public function product_exist ($product)
     {
-        if ($this->products->product_exist($product)) {
+        if ($this->products->product_exist($product ?? '')) {
             $this->form_validation->set_message('product_exist', 'The {field} already exist in database.');
             return false;
         }
@@ -109,8 +110,8 @@ class Upload_product extends CI_Controller
      */
     public function category_exist ($category)
     {
-        if ($this->categories->category_exist($category) === false) {
-            $this->form_validation->set_message('category_exist', 'The {field} already exist in database.');
+        if ($this->categories->category_exist($category ?? '') === false) {
+            $this->form_validation->set_message('category_exist', 'The {field} deos not exist in database.');
             return false;
         }
         return true;
