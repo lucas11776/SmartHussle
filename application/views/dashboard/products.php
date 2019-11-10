@@ -55,7 +55,7 @@
                         <?php for ($i = 0; $i < count($products); $i++): ?>
                             <div class="col-sm-6 col-md-4 mb-4">
                                 <div class="card">
-                                    <img src="<?= $products[$i]['picture'] ?>" height="300" class="card-img-top" alt="...">
+                                    <img src="<?= $products[$i]['picture'] ?>" height="300" class="card-img-top" alt="<?= $products[$i]['name'] ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= word_limiter($products[$i]['name'], 10) ?></h5>
                                         <p class="card-text"><?= word_limiter($products[$i]['description'], 30) ?></p>
