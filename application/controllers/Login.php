@@ -39,6 +39,12 @@ class Login extends CI_Controller
         }
 
         $this->session->set_userdata('uid', $account['uid']);
+
+        // if user is administrator redirect to dashboard
+        if ($account['role'] == $this->auth::ROLE['administrator']) {
+            redirect('dashboard');
+        }
+
         redirect('');
     }
 }

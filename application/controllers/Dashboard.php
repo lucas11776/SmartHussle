@@ -17,8 +17,8 @@ class Dashboard extends CI_Controller
         $page = [
             'number_products' => $this->products->count(),
             'number_messages' => $this->messages->count(),
-            'number_orders' => $this->orders->count(),
-            'number_users' => $this->users->count()
+            'number_users' => $this->users->count(),
+            'number_orders' => $this->orders->count()
         ];
         $this->load->view('dashboard/index', $page);
     }
@@ -86,7 +86,6 @@ class Dashboard extends CI_Controller
     {
         // authorization administrator
         $this->auth->administrator();
-        
         $page = [
             'users' => $this->users->get(),
             'number_messages' => $this->messages->count(),

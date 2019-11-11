@@ -89,7 +89,7 @@ class Users_model extends CI_Model
      */
     public function count (array $data = null, bool $search = false)
     {
-        return $this->crud->table(self::TABLE)->count($data ?? [], $search);
+        return $this->crud->table(self::TABLE)->count($data, $search);
     }
 
     /**

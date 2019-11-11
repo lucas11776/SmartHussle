@@ -47,7 +47,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-shopping-bag"></span> Products</h1>
+                        <h1 class="h3 mb-0 text-gray-800"><span class="fas fa-ticket-alt"></span> Orders</h1>
                     </div>
 
                     <!-- Content Row -->

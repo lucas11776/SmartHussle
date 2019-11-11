@@ -72,7 +72,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('dashboard/categories') ?>">
+        <a class="nav-link" href="<?= base_url('dashboard/users') ?>">
             <i class="fas fa-fw fa-users"></i><span> Users</span>
         </a>
     </li>
