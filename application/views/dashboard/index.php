@@ -11,7 +11,7 @@
     
     <base href="<?= base_url() ?>">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>SmartHussle Administrator Dashboard.</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -397,7 +397,7 @@ section
 }
 .hamburger:hover i
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .main_nav
 {
@@ -416,7 +416,7 @@ section
 .main_nav ul li.active a,
 .main_nav ul li a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .header_search
 {
@@ -447,8 +447,8 @@ section
 .search_input:focus,
 .search_input:hover
 {
-	border-color: #2fce98;
-	box-shadow: 0 0 1px 0px #2fce98 inset, 0 0 1px 0px #2fce98;
+	border-color: #ff6347;
+	box-shadow: 0 0 1px 0px #ff6347 inset, 0 0 1px 0px #ff6347;
 }
 .search_input::-webkit-input-placeholder
 {
@@ -519,7 +519,7 @@ section
 	width: 24px;
 	height: 24px;
 	border-radius: 50%;
-	background: #2fce98;
+	background: #ff6347;
 	text-align: center;
 	line-height: 24px;
 	color: #FFFFFF;
@@ -554,7 +554,7 @@ section
 }
 .header_phone > a:last-child:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .svg path, .svg rect, .svg polygon
 {
@@ -569,7 +569,7 @@ section
 .svg:hover rect,
 .svg:hover polygon
 {
-	fill: #2fce98;
+	fill: #ff6347;
 }
 
 /*********************************
@@ -612,7 +612,7 @@ section
 }
 .menu_nav ul li a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .menu_nav ul li a::after
 {
@@ -622,7 +622,7 @@ section
 	left: 0;
 	width: 0%;
 	height: 2px;
-	background: #2fce98;
+	background: #ff6347;
 	-webkit-transition: all 400ms ease;
 	-moz-transition: all 400ms ease;
 	-ms-transition: all 400ms ease;
@@ -697,11 +697,11 @@ section
 }
 .menu_social_list li:hover
 {
-	border-color: #2fce98;
+	border-color: #ff6347;
 }
 .menu_social_list li:hover a i
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .menu_search
 {
@@ -811,7 +811,7 @@ section
 	right: 15px;
 	width: 127px;
 	height: 127px;
-	background: #2fce98;
+	background: #ff6347;
 	border-radius: 50%;
 	z-index: 1;
 }
@@ -866,7 +866,7 @@ section
 .product_name a:hover,
 .product_category a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .home_item_large .product_name a,
 .home_item_large .product_category,
@@ -979,7 +979,7 @@ section
 }
 .product_buttons > a > div:hover
 {
-	background: #2fce98;
+	background: #ff6347;
 }
 .home_item_large .product_buttons > a > div:hover
 {
@@ -1014,7 +1014,7 @@ section
 	right: -4px;
 	width: 18px;
 	height: 18px;
-	background: #2fce98;
+	background: #ff6347;
 	color: #FFFFFF;
 	text-align: center;
 	line-height: 18px;
@@ -1060,7 +1060,7 @@ section
 }
 .home_slider_nav:hover
 {
-	border-color: #2fce98;
+	border-color: #ff6347;
 }
 .home_slider_nav i
 {
@@ -1074,7 +1074,7 @@ section
 }
 .home_slider_nav:hover i
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .home_slider_nav_prev
 {
@@ -1118,8 +1118,8 @@ section
 }
 .home_slider_custom_dot:hover
 {
-	border-color: #2fce98;
-	color: #2fce98;
+	border-color: #ff6347;
+	color: #ff6347;
 }
 
 /*********************************
@@ -1163,7 +1163,7 @@ section
 .page_nav ul li.active a,
 .page_nav ul li a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .products_row
 {
@@ -1177,10 +1177,10 @@ section
 {
 	width: 138px;
 	height: 44px;
-	background: #2fce98;
+	background: #ff6347;
 	border-radius: 2px;
 	text-align: center;
-	border: solid 2px #2fce98;
+	border: solid 2px #ff6347;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1204,7 +1204,7 @@ section
 }
 .button:hover a
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 
 /*********************************
@@ -1282,7 +1282,7 @@ section
 	right: -24px;
 	width: 49px;
 	height: 49px;
-	background: #2fce98;
+	background: #ff6347;
 	border-radius: 2px;
 	z-index: 1;
 	font-family: 'FontAwesome';
@@ -1328,7 +1328,7 @@ section
 	width: calc(100% + 60px);
 	left: -30px;
 	height: 147px;
-	background: #2fce98;
+	background: #ff6347;
 }
 .feature_left
 {
@@ -1484,7 +1484,7 @@ section
 }
 .footer_list li a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .footer_list li a > div::after
 {
@@ -1504,7 +1504,7 @@ section
 }
 .footer_list li a:hover > div::after
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .footer_list li a > div
 {
@@ -1531,7 +1531,7 @@ section
 .footer_tag_1
 {
 	left: calc(100% + 5px);
-	background: #2fce98;
+	background: #ff6347;
 }
 .footer_tag_2
 {
@@ -1599,7 +1599,7 @@ section
 	width: 53px;
 	height: 53px;
 	border-radius: 50%;
-	background: #2fce98;
+	background: #ff6347;
 	border: none;
 	outline: none;
 	font-size: 24px;
@@ -1658,12 +1658,12 @@ section
 }
 .footer_social_list li:hover
 {
-	border-color: #2fce98;
+	border-color: #ff6347;
 	transform: translateY(-5px);
 }
 .footer_social_list li a:hover i
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .footer_bar
 {
@@ -1686,7 +1686,7 @@ section
 }
 .footer_nav ul li a:hover
 {
-	color: #2fce98;
+	color: #ff6347;
 }
 .copyright
 {
