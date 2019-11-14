@@ -63,5 +63,6 @@ $route['dashboard/upload/product'] = 'upload_product/index';
 $route['dashboard/products/delete'] = 'products/delete';
 $route['dashboard/orders/delete'] = 'orders/delete';
 $route['dashboard/messages/delete'] = 'messages/delete';
+$route['dashboard/users/delete'] = 'users/delete';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
