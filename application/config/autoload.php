@@ -148,5 +148,6 @@ $autoload['model'] = array(
     'products_model' => 'products',
     'orders_model' => 'orders',
     'messages_model' => 'messages',
-    'pagination_dashboard_model' => 'pagination_dashboard'
+    'pagination_dashboard_model' => 'pagination_dashboard',
+    'pagination_home_model' => 'pagination_home'
 );

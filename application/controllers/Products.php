@@ -21,11 +21,10 @@ class Products extends CI_Controller
             'categories' => $this->categories->get(),
             'products' => $this->products->get([], 9)
         ];
-        
-		// $this->pagination_model->init([
-        //     'per_page' => $this::LIMIT,
-        //     'total_rows' => 12
-        // ]);
+		$this->pagination_home->init([
+            'per_page' => $this::LIMIT,
+            'total_rows' => 12
+        ]);
         $this->load->view('store', $page);
     }
 
