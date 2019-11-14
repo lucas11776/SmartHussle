@@ -2,9 +2,9 @@
     <div class="header_overlay"></div>
     <div class="header_content d-flex flex-row align-items-center justify-content-start">
         <div class="logo">
-            <a href="#">
+            <a href="<?= base_url() ?>">
                 <div class="d-flex flex-row align-items-center justify-content-start">
-                    <div><img src="assets/images/logo_1.png" alt=""></div>
+                    <div><img src="assets/images/logo_1.png" alt="SmartHussle"></div>
                     <div>SmartHussle</div>
                 </div>
             </a>	

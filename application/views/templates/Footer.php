@@ -7,7 +7,7 @@
                 <div class="col-lg-4 footer_col">
                     <div class="footer_about">
                         <div class="footer_logo">
-                            <a href="#">
+                            <a href="<?= base_url() ?>">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
                                     <div class="footer_logo_icon"><img src="assets/images/logo_2.png" alt=""></div>
                                     <div>SmartHussle</div>

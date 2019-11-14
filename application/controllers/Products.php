@@ -5,16 +5,27 @@ class Products extends CI_Controller
 {
 
     /**
+	 * Request database limit
+	 */
+	protected const LIMIT = 6;
+
+    /**
      * Products controller
      * 
      * @Maps http://website/store
      */
     public function index ()
     {
+
         $page = [
             'categories' => $this->categories->get(),
             'products' => $this->products->get([], 9)
         ];
+        
+		// $this->pagination_model->init([
+        //     'per_page' => $this::LIMIT,
+        //     'total_rows' => 12
+        // ]);
         $this->load->view('store', $page);
     }
 
