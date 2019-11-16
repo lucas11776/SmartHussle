@@ -59,7 +59,7 @@ class Pagination_home_model extends CI_Model
             'num_tag_open' => '<li>',
             'num_tag_close' => '</li>',
             // current page tag
-            'cur_tag_open' => '<li class="active"',
+            'cur_tag_open' => '<li class="active p-1">',
             'cur_tag_close' => '</li>'
         ];
     }

@@ -11,7 +11,7 @@
 
     <base href="<?= base_url() ?>">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Users - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -126,33 +126,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 offset-md-3">
                                     <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                                        <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled"
-                                                id="dataTable_previous">
-                                                <a href="#" aria-controls="dataTable" class="page-link">Previous</a>
-                                            </li>
-                                            <li class="paginate_button page-item active">
-                                                <a href="#" aria-controls="dataTable" class="page-link">1</a>
-                                            </li>
-                                            <li class="paginate_button page-item ">
-                                                <a href="#" aria-controls="dataTable" class="page-link">2</a>
-                                            </li>
-                                            <li class="paginate_button page-item ">
-                                                <a href="#" aria-controls="dataTable" class="page-link">3</a>
-                                            </li>
-                                            <li class="paginate_button page-item ">
-                                                <a href="#" aria-controls="dataTable" class="page-link">4</a>
-                                            </li>
-                                            <li class="paginate_button page-item ">
-                                                <a href="#" aria-controls="dataTable" class="page-link">5</a>
-                                            </li>
-                                            <li class="paginate_button page-item ">
-                                                <a href="#" aria-controls="dataTable" class="page-link">6</a>
-                                            </li>
-                                            <li class="paginate_button page-item next" id="dataTable_next">
-                                                <a href="#" aria-controls="dataTable" class="page-link">Next</a>
-                                            </li>
-                                        </ul>
+                                        <?= $this->pagination->create_links() ?>
                                     </div>
                                 </div>
                             </div>

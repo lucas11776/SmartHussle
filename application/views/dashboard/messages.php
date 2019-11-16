@@ -11,7 +11,7 @@
     
     <base href="<?= base_url() ?>">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Messages (<?= $number_messages ?>) - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -94,7 +94,13 @@
                             </div>
                         <?php endfor; ?>
                     </div>
-
+                    <div class="row pt-3 pb-3">
+                        <div class="col-sm-12 col-md-6 offset-md-3">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <?= $this->pagination->create_links() ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.container-fluid -->
 

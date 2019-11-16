@@ -19,11 +19,15 @@ class Products extends CI_Controller
 
         $page = [
             'categories' => $this->categories->get(),
-            'products' => $this->products->get([], 9)
+            'products' => $this->products->get(
+                [], // where
+                self::LIMIT, // limit
+                is_numeric($this->input->get('page')) ? $this->input->get('page') : 0 // offset
+            )
         ];
 		$this->pagination_home->init([
             'per_page' => $this::LIMIT,
-            'total_rows' => 12
+            'total_rows' => $this->products->count()
         ]);
         $this->load->view('store', $page);
     }
@@ -42,6 +46,10 @@ class Products extends CI_Controller
             'categories' => $this->categories->get(),
             'products' => $this->products->get(['category' => $category])
         ];
+        $this->pagination_home->init([
+            'per_page' => $this::LIMIT,
+            'total_rows' => $this->products->count(['category' => $category])
+        ]);
         $this->load->view('store', $page);
     }
 

@@ -11,7 +11,7 @@
     
     <base href="<?= base_url() ?>">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Orders - Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -53,7 +53,7 @@
                     <!-- Content Row -->
                     <div class="row">
                         <?php for ($i = 0; $i < count($orders); $i++): ?>
-                            <div class="col-sm-8 col-md-6 mb-4">
+                            <div class="col-sm-8 col-md-6 col-lg-4 mb-4">
                                 <div class="card">
                                     <img src="<?= $orders[$i]['picture'] ?>"
                                          class="card-img-top col-sm-8 col-md-6 offset-sm-2 offset-md-3" 
@@ -93,6 +93,13 @@
                                 </div>
                             </div>
                         <?php endfor; ?>
+                    </div>
+                    <div class="row pt-3 pb-3">
+                        <div class="col-sm-12 col-md-6 offset-md-3">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                                <?= $this->pagination->create_links() ?>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

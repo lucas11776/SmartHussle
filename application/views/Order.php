@@ -59,12 +59,21 @@
 								<div class="checkout_title"><span class="fa fa-money"></span> Order Total</div>
 								<ul class="cart_extra_total_list">
 									<li class="d-flex flex-row align-items-center justify-content-start">
+										<div class="cart_extra_total_title">
+											<span class="fa fa-shopping-bag text-primary"></span> <?= $product['name'] ?>
+										</div>
+									</li>
+									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Subtotal</div>
-										<div class="cart_extra_total_value ml-auto">R<?= number_format($product['price'],2) ?></div>
+										<div class="cart_extra_total_value ml-auto">
+											R<?= number_format($product['price'],2) ?>
+										</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_extra_total_title">Total</div>
-										<div class="cart_extra_total_value ml-auto">R<?= number_format($product['price'],2) ?></div>
+										<div class="cart_extra_total_value ml-auto">
+											R<?= number_format($product['price'],2) ?>
+										</div>
 									</li>
 								</ul>
 								<div class="cart_text">

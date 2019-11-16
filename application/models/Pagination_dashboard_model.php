@@ -39,28 +39,28 @@ class Pagination_dashboard_model extends CI_Model
     private function html () {
         return [
             // pagination tags
-            'full_tag_open' => '<nav>' . '<ul class="pagination">',
-            'full_tag_close' => '</ul> ' . '</nav>',
+            'full_tag_open' => '<ul class="pagination">',
+            'full_tag_close' => '</ul>',
             // first tags
-            'first_tag_open' => '<li>',
-            'first_tag_close' => '</li>',
+            'first_tag_open' => '<li class="paginate_button page-item"><span class="page-link">',
+            'first_tag_close' => '</span></li>',
             // last tags
-            'last_tag_open' => '<li>',
-            'last_tag_close' => '</li>',
+            'last_tag_open' => '<li class="paginate_button page-item"><span class="page-link">',
+            'last_tag_close' => '</span></li>',
             // next tags
-            'next_tag_open' => '<li>',
-            'next_tag_close' => '</li>',
+            'next_tag_open' => '<li class="paginate_button page-item"><span class="page-link">',
+            'next_tag_close' => '</span></li>',
             'next_link' => '<span class="fa fa-arrow-right" style="position:relative;top:2.5px;"></span> Next',
             // previous tags
-            'prev_tag_open' => '<li>',
-            'prev_tag_close' => '</li>',
+            'prev_tag_open' => '<li class="paginate_button page-item"><span class="page-link">',
+            'prev_tag_close' => '</span></li>',
             'prev_link' => '<span class="fa fa-arrow-left" style="position:relative;top:2.5px;"></span> Back',
             // page numbers tags
-            'num_tag_open' => '<li>',
-            'num_tag_close' => '</li>',
+            'num_tag_open' => '<li class="paginate_button page-item"><span class="page-link">',
+            'num_tag_close' => '</span></li>',
             // current page tag
-            'cur_tag_open' => '<li class="active"',
-            'cur_tag_close' => '</li>'
+            'cur_tag_open' => '<li class="paginate_button page-item active"><span class="page-link">',
+            'cur_tag_close' => '</span></li>'
         ];
     }
     
