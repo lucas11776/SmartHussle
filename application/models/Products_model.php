@@ -107,6 +107,18 @@ class Products_model extends CI_Model
     }
 
     /**
+     * Update product in database
+     * 
+     * @param   array
+     * @param   array
+     * @return  boolean
+    */
+    public function update (array $where, array $data)
+    {
+        return $this->crud->table(self::TABLE)->update($where, $data);
+    }
+
+    /**
      * Detele product in database
      * 
      * @param   array
@@ -115,6 +127,18 @@ class Products_model extends CI_Model
     public function delete (array $where)
     {
         return $this->crud->table(self::TABLE)->delete($where);
+    }
+
+    /**
+     * return price decimal
+     * 
+     * @param   integer
+     * @return  integer
+     */
+    public function price_decimal (int $price)
+    {
+        $price = explode('.', number_format($price, 2));
+        return end($price);
     }
 
 }

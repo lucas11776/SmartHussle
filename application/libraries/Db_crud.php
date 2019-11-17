@@ -151,6 +151,21 @@ class DB_Crud
     }
 
     /**
+     * Updated record in databse
+     * 
+     * @param   array
+     * @param   array
+     * @return  boolean
+     */
+    public function update (array $where, array $data)
+    {
+        $this->db->reset_query();
+        return $this->db->where($where)
+                        ->update($this->db_table, $data);
+    }
+
+
+    /**
      * Delete record in databse
      * 
      * @param   array

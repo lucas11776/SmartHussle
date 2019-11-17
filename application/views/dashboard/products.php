@@ -67,7 +67,7 @@
                                                     value="<?= $products[$i]['pid'] ?>">
                                                 <span class="fas fa-trash"></span> Delete
                                             </button>
-                                            <a href="<?= base_url('dashboard/products/' . $products[$i]['slug']) ?>" class="btn btn-outline-info">
+                                            <a href="<?= base_url('dashboard/edit/product/' . $products[$i]['pid']) ?>" class="btn btn-outline-info">
                                                 <span class="fas fa-edit"></span> Edit
                                             </a>
                                         </div>

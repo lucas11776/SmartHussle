@@ -18,7 +18,7 @@
                 <div class="ml-auto text-right">
                     <!-- Removed home_item_rating -->
                     <div class="product_price text-right">
-                        R<?= floor($price) ?><span>.99</span>
+                        R<?= number_format($price, 0) ?><span>.<?= $this->products->price_decimal($price) ?></span>
                     </div>
                 </div>
             </div>

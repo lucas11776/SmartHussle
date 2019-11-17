@@ -75,6 +75,9 @@
                             <ul class="d-flex flex-row align-items-center justify-content-start">
                                 <li><a href="<?= base_url('') ?>">Home</a></li>
                                 <li><a href="<?= base_url('store') ?>">Store</a></li>
+                                <?php if ($this->auth->user(false)): ?>
+                                    <li><a href="<?= base_url('account') ?>">Account</a></li>
+                                <?php endif; ?>
                                 <?php if ($this->auth->guest(false)): ?>
                                     <li><a href="<?= base_url('register') ?>">Register</a></li>
                                     <li><a href="<?= base_url('login') ?>">Login</a></li>

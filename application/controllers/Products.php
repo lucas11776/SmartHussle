@@ -54,6 +54,68 @@ class Products extends CI_Controller
     }
 
     /**
+     * Edit product controller
+     * 
+     * @Maps http://website/dashboard/edit/product/:pid
+     */
+    public function edit (int $pid)
+    {
+        // authorization administrator
+        $this->auth->administrator();
+
+        // get product from database
+        $product = $this->products->get(['pid' => $pid])[0] ?? [];
+
+        // check if product exist
+        if (count($product) === 0) {
+            redirect('dashboard/products');
+        }
+
+        $this->form_validation->set_rules('category', 'category', 'required|callback_category_exist');
+        $this->form_validation->set_rules('price', 'price', 'required|numeric');
+        $this->form_validation->set_rules('description', 'description', 'required');
+
+        if ($this->form_validation->run() === false) {
+            $page = [
+                'product' => $product,
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
+            ];
+            $this->load->view('products/edit', $page);
+            return;
+        }
+
+        // edit product data
+        $edit_data = [
+            'category' => $this->input->post('category'),
+            'price' => $this->input->post('price'),
+            'description' => $this->input->post('description')
+        ];
+        
+        if ($this->products->update(['pid' => $pid], $edit_data) === false) {
+            $this->session->set_flashdata('form_error', 'Something went wrong when tring to connect to database.');
+            $page = [
+                'product' => $product,
+                'categories' => $this->categories->get(),
+                'number_orders' => $this->orders->count(),
+                'number_messages' => $this->messages->count()
+            ];
+            $this->load->view('products/edit', $page);
+            return;
+        }
+
+        $this->session->set_flashdata('form_success', 'Product has been edited successfully.');
+        $page = [
+            'product' => array_merge($product, $edit_data),
+            'categories' => $this->categories->get(),
+            'number_orders' => $this->orders->count(),
+            'number_messages' => $this->messages->count()
+        ];
+        $this->load->view('products/edit', $page);
+    }
+
+    /**
      * Delete product controller
      * 
      * @Maps http://website/dashboard/delete/product
@@ -90,6 +152,21 @@ class Products extends CI_Controller
         }
 
         redirect($this->input->post('redirect'));
+    }
+
+    /**
+     * Check if product category exist
+     * 
+     * @param   string
+     * @return boolean
+     */
+    public function category_exist ($category)
+    {
+        if ($this->categories->category_exist($category) === false) {
+            $this->form_validation->set_message('category_exist', 'The {field} does not exist in SmartHussle database.');
+            return false;
+        }
+        return true;
     }
 
 }
