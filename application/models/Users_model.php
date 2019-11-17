@@ -93,6 +93,18 @@ class Users_model extends CI_Model
     }
 
     /**
+     * Update account record
+     * 
+     * @param   array
+     * @param   array
+     * @return  boolean
+     */
+    public function update (array $where, array $data)
+    {
+        return $this->crud->table(self::TABLE)->update($where, $data);
+    }
+
+    /**
      * Delete record in database
      * 
      * @param   array
