@@ -53,6 +53,10 @@
                                                 </div>
                                             </div>
                                         <?php endif; ?>
+                                        <!-- Redirect -->
+                                        <input type="hidden"
+                                               name="redirect" 
+                                               value="<?= set_value('redirect') ? set_value('redirect') : $this->input->get('redirect') ?>"/>
                                         <div class="form-group">
                                             <input type="text"
                                                    name="username"

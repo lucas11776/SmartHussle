@@ -56,11 +56,11 @@
                             <div class="col-sm-8 col-md-6 col-lg-4 mb-4">
                                 <div class="card">
                                     <img src="<?= $orders[$i]['picture'] ?>"
-                                         class="card-img-top col-sm-8 col-md-6 offset-sm-2 offset-md-3" 
+                                         class="card-img-top col-sm-8 col-md-6 offset-sm-2 offset-md-3"
                                          alt="<?= $orders[$i]['name'] ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= word_limiter($orders[$i]['product_name'], 10) ?></h5>
-                                        <ul class="list-group list-group-flush">
+                                        <ul class="list-group list-group-flush small">
                                             <li class="list-group-item" title="Client name and surname">
                                                 <span class="fas fa-user"></span> <?= $orders[$i]['name'] . ' ' . $orders[$i]['surname'] ?>
                                             </li>
@@ -158,7 +158,7 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Are you sure your want to delete "Product" click delete to confirm.</div>
+                <div class="modal-body">Are you sure your want to delete "Order" click delete to confirm.</div>
 
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>

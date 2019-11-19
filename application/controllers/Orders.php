@@ -51,6 +51,21 @@ class Orders extends CI_Controller
             return $this->load->view('order', $page);
         }
 
+        // merge order data and product data
+        $order_details = array_merge(
+            $order_data, $this->products->get(['pid' => $pid])[0] ?? []
+        );
+
+        // get all administrator account
+        $administrator_accounts = $this->users->get(['role' => $this->auth::ROLE['administrator']]);
+
+        // send notification mail to all administrators
+        for ($i = 0; $i < count($administrator_accounts); $i++) {
+           
+        }
+
+        die();
+
         $this->session->set_flashdata('form_success', 'Thank you for your order we will get back to you.');
         redirect(uri_string());
     }

@@ -80,7 +80,7 @@ class Authorization extends DB_crud
     {
         $allowed = $this->account('role') >= self::ROLE['user'];
         if ($redirect && $allowed === false) {
-            redirect('login');
+            redirect('login?redirect=' . uri_string());
         }
         return $allowed;
     }
@@ -95,7 +95,7 @@ class Authorization extends DB_crud
     {
         $allowed = $this->account('role') >= self::ROLE['administrator'];
         if ($redirect && $allowed === false) {
-            redirect('');
+            redirect('login?redirect=' . uri_string());
         }
         return $allowed;
     }

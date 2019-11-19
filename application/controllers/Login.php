@@ -42,9 +42,9 @@ class Login extends CI_Controller
 
         // if user is administrator redirect to dashboard
         if ($account['role'] == $this->auth::ROLE['administrator']) {
-            redirect('dashboard');
+            redirect($this->input->post('redirect') ? $this->input->post('redirect') : 'dashboard');
         }
 
-        redirect('');
+        redirect($this->input->post('redirect'));
     }
 }
