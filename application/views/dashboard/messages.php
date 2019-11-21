@@ -11,7 +11,7 @@
     
     <base href="<?= base_url() ?>">
 
-    <title>Messages (<?= $number_messages ?>) - Dashboard</title>
+    <title>Messages (<?= $number_messages ?>)</title>
 
     <!-- Custom fonts for this template-->
     <link href="assets/dashboard/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

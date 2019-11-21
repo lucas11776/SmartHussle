@@ -61,10 +61,8 @@ class Orders extends CI_Controller
 
         // send notification mail to all administrators
         for ($i = 0; $i < count($administrator_accounts); $i++) {
-           
+           // send mail
         }
-
-        die();
 
         $this->session->set_flashdata('form_success', 'Thank you for your order we will get back to you.');
         redirect(uri_string());
